@@ -28,6 +28,12 @@ app.get("/filter", (req, res) => {
 });
 
 //4. POST a new joke
+app.post("/jokes", (req, res) => {
+  const type = req.query.type;
+  const text = req.query.text;
+  jokes.push({ id: jokes.length + 1, jokeText: text, jokeType: type });
+  res.json(jokes[jokes.length - 1]);
+});
 
 //5. PUT a joke
 
