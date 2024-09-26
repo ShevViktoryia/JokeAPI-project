@@ -51,8 +51,8 @@ app.put("/jokes/:id", (req, res) => {
 app.patch("/jokes/:id", (req, res) => {
   const id = parseInt(req.params.id);
   const searchId = jokes.findIndex((joke) => joke.id === id);
-  const jokeText = req.query.text ? req.query.text : jokes[searchId].jokeText;
-  const jokeType = req.query.type ? req.query.type : jokes[searchId].jokeType;
+  const jokeText = req.body.text ? req.body.text : jokes[searchId].jokeText;
+  const jokeType = req.body.type ? req.body.type : jokes[searchId].jokeType;
   const joke = {
     id: id,
     jokeText: jokeText,
